@@ -61,15 +61,13 @@ export default function Header() {
                   style={{ fontWeight: 'var(--font-weight-heading)' }}
                   className="flex items-center text-sm"
                 >
-                  Account
+                  Themes
                   <ChevronDown className={`w-5 h-5 ml-1 transition-transform ${isAccountMenuOpen ? 'rotate-180' : ''}`} />
                 </Button>
                 {isAccountMenuOpen && (
                   <div style={{ backgroundColor: 'var(--color-base-white)', boxShadow: 'var(--shadow-m)' }} className="absolute right-0 mt-2 w-60 origin-top-right rounded-md ring-1 ring-black ring-opacity-5 focus:outline-none">
                     <div className="py-1">
-                      <div className="px-4 py-3">
-                        <p style={{ color: 'var(--color-neutral-700)', fontWeight: 'var(--font-weight-heading)' }} className="text-sm">Account menu</p>
-                      </div>
+              
                       <div style={{ borderColor: 'var(--color-neutral-200)' }} className="border-t" />
                       <Button onClick={() => { setTheme('light'); setAccountMenuOpen(false); }} variant="secondary" size="sm" style={{ color: 'var(--color-neutral-700)' }} className="flex items-center w-full px-4 py-2 text-sm hover:bg-gray-100">
                         <Sun className="w-4 h-4 mr-3" /> Light
