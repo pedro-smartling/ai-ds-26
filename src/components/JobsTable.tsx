@@ -118,34 +118,6 @@ const jobs = [
     },
 ];
 
-function FilterDropdown({ label }: { label: string }) {
-    const [isOpen, setIsOpen] = useState(false);
-
-    return (
-        <div className="relative inline-block text-left">
-            <div>
-                <Button
-                    onClick={() => setIsOpen(!isOpen)}
-                    variant="secondary"
-                    size="sm"
-                    className="flex items-center justify-between w-full px-3 py-2 text-sm text-left hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                    <span>{label}</span>
-                    <ChevronDown className="w-5 h-5 ml-2 -mr-1" />
-                </Button>
-            </div>
-            {isOpen && (
-                <div className="absolute right-0 z-10 w-56 mt-2 origin-top-right bg-white rounded-md shadow-lg dark:bg-gray-700 ring-1 ring-black ring-opacity-5 focus:outline-none">
-                    <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                        <a href="#" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600" role="menuitem">Option 1</a>
-                        <a href="#" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600" role="menuitem">Option 2</a>
-                    </div>
-                </div>
-            )}
-        </div>
-    )
-}
-
 function StatusBadge({ status }: { status: string }) {
     let colorClasses = "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200";
     let dotClasses = "bg-gray-400 dark:bg-gray-500";
