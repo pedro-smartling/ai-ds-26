@@ -1,0 +1,223 @@
+/* ================================
+   BUTTONS DESIGN SYSTEM
+   ================================ */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25em;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  border-radius: var(--radius-m, 8px);
+  border-width: 1px;
+  border-style: solid;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  outline: none;
+  user-select: none;
+  text-decoration: none;
+  flex-shrink: 0;
+  font-weight: var(--font-weight-heading);
+}
+
+/* Sizes */
+.button--sm {
+  font-size: var(--font-size-s);
+  line-height: var(--line-height-body-s);
+  height: var(--size-actions-l);
+  padding: var(--space-page-inside-xs) var(--space-page-inside-s);
+  gap: var(--space-page-inside-s);  
+}
+.button--md {
+  font-size: var(--font-size-s);
+  line-height: var(--line-height-body-s);
+  height: var(--size-actions-xl);
+  padding: var(--space-page-inside-m);
+  gap: var(--space-page-inside-xxs);  
+}
+.button--lg {
+  font-size: var(--font-size-m);
+  line-height: var(--line-height-body-m);
+  height: var(--size-actions-2xl);
+  padding: var(--space-page-inside-m);
+  gap: var(--space-page-inside-xs);  
+}
+
+.button--xl {
+  font-size: var(--font-size-m);
+  line-height: var(--line-height-body-m);
+  height: var(--size-actions-3xl);
+  padding: var(--space-page-inside-m);
+  gap: var(--space-page-inside-xs);  
+}
+
+/* Primary */
+.button--primary {
+  border-radius: var(--radius-m, 8px);
+  border: 1px solid var(--color-border-transparent, rgba(0, 0, 0, 0.00));
+  background: var(--color-surface-brand-solid, #7C3AED);
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 41, 0.05);
+  color: var(--color-text-main-onbrand);
+}
+.button--primary:hover {
+  background: var(--color-violet-700);
+}
+.button--primary:focus,
+.button--secondary:focus
+.button--tertiary:focus {
+  box-shadow: 0 0 0 2px var(--color-base-white), 0 0 0 4px var(--color-links-focus);
+}
+.button--primary:disabled,
+.button--primary[aria-disabled="true"] {
+  background: var(--color-neutral-100);
+  color: var(--color-neutral-400);
+  border-color: var(--color-neutral-300);
+  cursor: not-allowed;
+}
+
+/* Secondary */
+.button--secondary {
+  background: var(--color-base-white);
+  color: var(--color-neutral-800);
+  border-color: var(--color-neutral-300);
+  box-shadow: 0px 1px 2px 0px rgba(16,24,40,0.05);
+}
+.button--secondary:hover {
+  background: var(--color-neutral-100);
+}
+
+.button--secondary:disabled,
+.button--secondary[aria-disabled="true"] {
+  background: var(--color-neutral-100);
+  color: var(--color-neutral-400);
+  border-color: var(--color-neutral-300);
+  cursor: not-allowed;
+}
+
+/* Tertiary */
+.button--tertiary {
+  background: var(--color-violet-50);
+  color: var(--color-violet-700);
+  border-color: var(--color-violet-300);
+  box-shadow: 0px 1px 2px 0px rgba(16,24,40,0.05);
+}
+.button--tertiary:hover {
+  background: var(--color-violet-100);
+  color: var(--color-violet-800);
+}
+
+.button--tertiary:disabled,
+.button--tertiary[aria-disabled="true"] {
+  background: var(--color-base-white);
+  color: var(--color-neutral-400);
+  border-color: var(--color-neutral-300);
+  cursor: not-allowed;
+}
+
+/* Delete Primary */
+.button--delete-primary {
+  background: var(--color-red-600);
+  color: var(--color-base-white);
+  border-color: transparent;
+  box-shadow: 0px 1px 2px 0px rgba(16,24,41,0.05);
+}
+.button--delete-primary:hover {
+  background: var(--color-red-700);
+}
+.button--delete-primary:focus {
+  box-shadow: 0 0 0 2px var(--color-base-white), 0 0 0 4px var(--color-amber-300);
+}
+.button--delete-primary:disabled,
+.button--delete-primary[aria-disabled="true"] {
+  background: var(--color-base-white);
+  color: var(--color-neutral-400);
+  border-color: var(--color-neutral-300);
+  cursor: not-allowed;
+}
+
+/* Delete Secondary */
+.button--delete-secondary {
+  background: var(--color-base-white);
+  color: var(--color-red-600);
+  border-color: var(--color-red-600);
+  box-shadow: 0px 1px 2px 0px rgba(16,24,41,0.05);
+}
+.button--delete-secondary:hover {
+  background: var(--color-red-50);
+  color: var(--color-red-600);
+  border-color: var(--color-red-300);
+}
+.button--delete-secondary:focus {
+  box-shadow: 0 0 0 2px var(--color-base-white), 0 0 0 4px var(--color-amber-300);
+}
+.button--delete-secondary:disabled,
+.button--delete-secondary[aria-disabled="true"] {
+  background: var(--color-base-white);
+  color: var(--color-neutral-400);
+  border-color: var(--color-neutral-300);
+  cursor: not-allowed;
+}
+
+/* Link Color */
+.button--link-color {
+  background: transparent;
+  color: var(--color-violet-700);
+  border: none;
+  border-bottom: 1px solid var(--color-violet-500);
+  box-shadow: none;
+  padding: 0;
+}
+.button--link-color:hover {
+  color: var(--color-violet-800);
+  border-bottom: 2px solid var(--color-violet-500);
+}
+.button--link-color:focus {
+  outline: 2px solid var(--color-amber-300);
+}
+.button--link-color:disabled,
+.button--link-color[aria-disabled="true"] {
+  color: var(--color-neutral-400);
+  border-bottom: 1px solid var(--color-neutral-300);
+  cursor: not-allowed;
+}
+
+/* Link Gray */
+.button--link-gray {
+  background: transparent;
+  color: var(--color-neutral-600);
+  border: none;
+  border-bottom: 1px solid var(--color-neutral-800);
+  box-shadow: none;
+  padding: 0;
+}
+.button--link-gray:hover {
+  color: var(--color-neutral-700);
+  border-bottom: 2px solid var(--color-neutral-800);
+}
+.button--link-gray:focus {
+  outline: 2px solid var(--color-amber-300);
+}
+.button--link-gray:disabled,
+.button--link-gray[aria-disabled="true"] {
+  color: var(--color-neutral-400);
+  border-bottom: 1px solid var(--color-neutral-300);
+  cursor: not-allowed;
+}
+
+/* Icon Only */
+.button--icon {
+  padding: 0.5em;
+  min-width: 2.5em;
+  min-height: 2.5em;
+  justify-content: center;
+  border: none;
+}
+
+.button--primary,
+.button--secondary,
+.button--tertiary,
+.button--delete-primary,
+.button--delete-secondary {
+  border-width: 1px;
+} 
