@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Plus, SearchLg, Settings01, SwitchVertical01, DotsHorizontal, ChevronDown, FilterFunnel01 } from '@untitled-ui/icons-react';
+import { Plus, SearchLg, Settings01, SwitchVertical01, DotsHorizontal, FilterFunnel01 } from '@untitled-ui/icons-react';
 import Drawer from './Drawer';
 import Button from '@/components/Button';
 
