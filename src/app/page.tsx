@@ -1,7 +1,5 @@
 import Header from "@/components/Header";
 import JobsTable from "@/components/JobsTable";
-import SubNavigation from "@/components/SubNavigation";
-import Link from 'next/link';
 
 export default function JobsDashboardPage() {
   return (
@@ -13,7 +11,6 @@ export default function JobsDashboardPage() {
         Skip to main content
       </a>
         <Header />
-        <SubNavigation />
       <main id="main-content" style={{ backgroundColor: 'var(--color-surface-soft)' }}>
         <JobsTable />
       </main>
