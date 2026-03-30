@@ -40,6 +40,7 @@ const navigation: NavItem[] = [
       { label: 'Modal', href: '/docs/components/modal' },
       { label: 'Progress Bar', href: '/docs/components/progress-bar' },
       { label: 'Radio', href: '/docs/components/radio' },
+      { label: 'Steps', href: '/docs/components/steps' },
       { label: 'Table', href: '/docs/components/table' },
       { label: 'Tag', href: '/docs/components/tag' },
       { label: 'Tabs', href: '/docs/components/tabs' },

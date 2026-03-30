@@ -53,12 +53,13 @@ export default function ButtonsPage() {
       {/* Sizes */}
       <section style={{ marginBottom: 'var(--space-page-inset-xl)' }}>
         {sectionTitle('Sizes')}
-        {sectionDesc('Three sizes scale with content density requirements. Use lg for primary actions, md as default, sm for compact UIs.')}
+        {sectionDesc('Four sizes scale with content density. Use xl for hero actions, lg for primary, md as default, sm for compact UIs.')}
         <PreviewBox>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--dimension-tier-6)', alignItems: 'center' }}>
             <Button size="sm">Small</Button>
             <Button size="md">Medium</Button>
             <Button size="lg">Large</Button>
+            <Button size="xl">Extra large</Button>
           </div>
         </PreviewBox>
       </section>
