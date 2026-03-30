@@ -1,82 +1,154 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
+import BaseRadio from '@/components/BaseRadio';
 
-interface RadioProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
+export type RadioSize = 'sm' | 'md';
+export type RadioState = 'default' | 'disabled' | 'readonly';
+
+interface RadioProps {
   label?: string;
-  description?: string;
+  /** Supporting text rendered below the label */
+  supportingText?: string;
+  size?: RadioSize;
+  state?: RadioState;
+  checked?: boolean;
+  disabled?: boolean;
+  readOnly?: boolean;
+  name?: string;
+  value?: string;
+  id?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  'aria-label'?: string;
 }
 
 const Radio = React.forwardRef<HTMLInputElement, RadioProps>(({
   label,
-  description,
+  supportingText,
+  size = 'sm',
+  state = 'default',
+  checked = false,
   disabled,
+  readOnly,
+  name,
+  value,
   id,
-  ...props
+  onChange,
+  'aria-label': ariaLabel,
 }, ref) => {
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
+
+  const isDisabled = disabled || state === 'disabled';
+  const isReadonly = readOnly || state === 'readonly';
+  const isInteractive = !isDisabled && !isReadonly;
+
   const radioId = id || label?.toLowerCase().replace(/\s+/g, '-');
+
+  // Derive the visual state for BaseRadio
+  const baseState = isDisabled ? 'disabled'
+    : isReadonly ? 'readonly'
+    : focused ? 'focused'
+    : hovered ? 'hover'
+    : 'default';
+
+  // Size-dependent tokens
+  const gap = size === 'md' ? 'var(--space-page-inside-s)' : 'var(--space-page-inside-xs)';
+  const fontSize = size === 'md' ? 'var(--font-size-m)' : 'var(--font-size-s)';
+  const lineHeight = size === 'md' ? 'var(--line-height-body-m)' : 'var(--line-height-body-s)';
+  const minLabelHeight = size === 'md' ? 'var(--size-actions-xxs)' : 'var(--size-actions-3xs)';
+
+  // Text colors
+  const labelColor = isDisabled || isReadonly
+    ? 'var(--color-text-disabled)'
+    : 'var(--color-text-soft)';
+  const supportingColor = isDisabled || isReadonly
+    ? 'var(--color-text-disabled)'
+    : 'var(--color-text-moderate)';
+
+  const hasText = !!(label || supportingText);
 
   return (
     <label
       htmlFor={radioId}
       style={{
         display: 'flex',
-        alignItems: description ? 'flex-start' : 'center',
-        gap: 'var(--dimension-tier-5)',
-        cursor: disabled ? 'not-allowed' : 'pointer',
-        opacity: disabled ? 'var(--opacity-medium)' : '1',
+        alignItems: hasText ? 'flex-start' : 'center',
+        gap,
+        cursor: isDisabled ? 'not-allowed' : isReadonly ? 'default' : 'pointer',
+        position: 'relative',
       }}
+      onMouseEnter={() => isInteractive && setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
-      <div style={{ position: 'relative', flexShrink: 0, marginTop: description ? '2px' : '0' }}>
-        <input
-          ref={ref}
-          id={radioId}
-          type="radio"
-          disabled={disabled}
-          style={{ position: 'absolute', opacity: 0, width: '100%', height: '100%', margin: 0, cursor: disabled ? 'not-allowed' : 'pointer' }}
-          {...props}
+      {/* Hidden native input */}
+      <input
+        ref={ref}
+        id={radioId}
+        type="radio"
+        name={name}
+        value={value}
+        checked={checked}
+        disabled={isDisabled}
+        readOnly={isReadonly}
+        onChange={onChange}
+        aria-label={!label ? ariaLabel : undefined}
+        style={{
+          position: 'absolute',
+          opacity: 0,
+          width: 0,
+          height: 0,
+          margin: 0,
+          pointerEvents: 'none',
+        }}
+        onFocus={() => setFocused(true)}
+        onBlur={() => setFocused(false)}
+      />
+
+      {/* Visual radio circle */}
+      <div style={{ flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <BaseRadio
+          size={size}
+          checked={checked}
+          forceState={baseState}
         />
-        <div style={{
-          width: '20px',
-          height: '20px',
-          borderRadius: '50%',
-          border: `2px solid ${props.checked ? 'var(--color-border-brand-main)' : 'var(--color-border-main)'}`,
-          backgroundColor: 'var(--color-surface-main)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          transition: 'border-color 0.15s',
-        }}>
-          {props.checked && (
-            <div style={{
-              width: '8px',
-              height: '8px',
-              borderRadius: '50%',
-              backgroundColor: 'var(--color-surface-brand-solid)',
-            }} />
-          )}
-        </div>
       </div>
-      {(label || description) && (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--dimension-tier-1)' }}>
+
+      {/* Label + supporting text */}
+      {hasText && (
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap,
+          flex: 1,
+          minWidth: 0,
+          fontSize,
+        }}>
           {label && (
-            <span style={{
-              fontSize: 'var(--font-size-s)',
+            <div style={{
+              fontFamily: 'var(--font-family-base)',
               fontWeight: 'var(--font-weight-body-strong)',
-              color: disabled ? 'var(--color-text-disabled)' : 'var(--color-text-main)',
-              lineHeight: 'var(--line-height-body-s)',
+              color: labelColor,
+              lineHeight,
+              minHeight: minLabelHeight,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
             }}>
               {label}
-            </span>
+            </div>
           )}
-          {description && (
-            <span style={{
-              fontSize: 'var(--font-size-xs)',
-              color: disabled ? 'var(--color-text-disabled)' : 'var(--color-text-moderate)',
-              lineHeight: 'var(--line-height-body-xs)',
+          {supportingText && (
+            <p style={{
+              margin: 0,
+              fontFamily: 'var(--font-family-base)',
+              fontWeight: 'var(--font-weight-body)',
+              color: supportingColor,
+              fontSize,
+              lineHeight,
             }}>
-              {description}
-            </span>
+              {supportingText}
+            </p>
           )}
         </div>
       )}

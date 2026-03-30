@@ -175,6 +175,76 @@ export default function TokensPage() {
             </div>
           ))}
         </TokenGroup>
+        <TokenGroup label="Page inset (space/page/inset)">
+          {[
+            ['--space-page-inset-none','0px','dimension-tier-0'],
+            ['--space-page-inset-xs','12px','dimension-tier-6'],
+            ['--space-page-inset-s','16px','dimension-tier-7'],
+            ['--space-page-inset-m','24px','dimension-tier-9'],
+            ['--space-page-inset-l','32px','dimension-tier-11'],
+            ['--space-page-inset-xl','48px','dimension-tier-15'],
+          ].map(([t, v, ref]) => (
+            <div key={t} style={{ display: 'flex', alignItems: 'center', gap: 'var(--dimension-tier-7)', padding: 'var(--dimension-tier-3) var(--dimension-tier-7)', borderBottom: '1px solid var(--color-border-soft)' }}>
+              <code style={{ width: '200px', fontSize: 'var(--font-size-xs)', fontFamily: 'monospace', color: 'var(--color-text-main)', flexShrink: 0 }}>{t}</code>
+              <div style={{ width: `${Math.min(parseInt(v as string), 200)}px`, height: '8px', backgroundColor: 'var(--color-surface-brand-solid)', borderRadius: '2px', flexShrink: 0 }} />
+              <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-text-moderate)', whiteSpace: 'nowrap' }}>{v as string} → {ref as string}</span>
+            </div>
+          ))}
+        </TokenGroup>
+        <TokenGroup label="Page inside (space/page/inside)">
+          {[
+            ['--space-page-inside-none','0px','dimension-tier-0'],
+            ['--space-page-inside-xxs','4px','dimension-tier-3'],
+            ['--space-page-inside-xs','8px','dimension-tier-5'],
+            ['--space-page-inside-s','12px','dimension-tier-6'],
+            ['--space-page-inside-m','16px','dimension-tier-7'],
+            ['--space-page-inside-l','24px','dimension-tier-9'],
+            ['--space-page-inside-xl','32px','dimension-tier-11'],
+            ['--space-page-inside-xxl','48px','dimension-tier-15'],
+          ].map(([t, v, ref]) => (
+            <div key={t} style={{ display: 'flex', alignItems: 'center', gap: 'var(--dimension-tier-7)', padding: 'var(--dimension-tier-3) var(--dimension-tier-7)', borderBottom: '1px solid var(--color-border-soft)' }}>
+              <code style={{ width: '200px', fontSize: 'var(--font-size-xs)', fontFamily: 'monospace', color: 'var(--color-text-main)', flexShrink: 0 }}>{t}</code>
+              <div style={{ width: `${Math.min(parseInt(v as string), 200)}px`, height: '8px', backgroundColor: 'var(--color-surface-brand-solid)', borderRadius: '2px', flexShrink: 0 }} />
+              <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-text-moderate)', whiteSpace: 'nowrap' }}>{v as string} → {ref as string}</span>
+            </div>
+          ))}
+        </TokenGroup>
+        <TokenGroup label="Size — actions (size/actions)">
+          {[
+            ['--size-actions-3xs','16px','dimension-tier-7'],
+            ['--size-actions-xxs','20px','dimension-tier-8'],
+            ['--size-actions-xs','24px','dimension-tier-9'],
+            ['--size-actions-s','28px','dimension-tier-10'],
+            ['--size-actions-m','32px','dimension-tier-11'],
+            ['--size-actions-l','36px','dimension-tier-12'],
+            ['--size-actions-xl','40px','dimension-tier-13'],
+            ['--size-actions-2xl','44px','dimension-tier-14'],
+            ['--size-actions-3xl','48px','dimension-tier-15'],
+          ].map(([t, v, ref]) => (
+            <div key={t} style={{ display: 'flex', alignItems: 'center', gap: 'var(--dimension-tier-7)', padding: 'var(--dimension-tier-3) var(--dimension-tier-7)', borderBottom: '1px solid var(--color-border-soft)' }}>
+              <code style={{ width: '200px', fontSize: 'var(--font-size-xs)', fontFamily: 'monospace', color: 'var(--color-text-main)', flexShrink: 0 }}>{t}</code>
+              <div style={{ width: `${Math.min(parseInt(v as string), 200)}px`, height: '8px', backgroundColor: 'var(--color-surface-brand-solid)', borderRadius: '2px', flexShrink: 0 }} />
+              <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-text-moderate)', whiteSpace: 'nowrap' }}>{v as string} → {ref as string}</span>
+            </div>
+          ))}
+        </TokenGroup>
+        <TokenGroup label="Size — icons (size/icon)">
+          {[
+            ['--size-icon-xxs','8px','dimension-tier-5'],
+            ['--size-icon-xs','12px','dimension-tier-6'],
+            ['--size-icon-s','16px','dimension-tier-7'],
+            ['--size-icon-m','20px','dimension-tier-8'],
+            ['--size-icon-l','24px','dimension-tier-9'],
+            ['--size-icon-xl','32px','dimension-tier-11'],
+            ['--size-icon-xxl','40px','dimension-tier-13'],
+          ].map(([t, v, ref]) => (
+            <div key={t} style={{ display: 'flex', alignItems: 'center', gap: 'var(--dimension-tier-7)', padding: 'var(--dimension-tier-3) var(--dimension-tier-7)', borderBottom: '1px solid var(--color-border-soft)' }}>
+              <code style={{ width: '200px', fontSize: 'var(--font-size-xs)', fontFamily: 'monospace', color: 'var(--color-text-main)', flexShrink: 0 }}>{t}</code>
+              <div style={{ width: `${Math.min(parseInt(v as string), 200)}px`, height: '8px', backgroundColor: 'var(--color-surface-brand-solid)', borderRadius: '2px', flexShrink: 0 }} />
+              <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-text-moderate)', whiteSpace: 'nowrap' }}>{v as string} → {ref as string}</span>
+            </div>
+          ))}
+        </TokenGroup>
         <TokenGroup label="Gap tokens (jf/gap)">
           {[['--jf-gap-0 (jf/gap/0)','0'],['--jf-gap-xs (jf/gap/xs)','8px'],['--jf-gap-md (jf/gap/md)','16px'],['--jf-gap-xl (jf/gap/xl)','24px'],['--jf-gap-auto (jf/gap/auto)','auto']].map(([t, v]) => <TokenRow key={t} token={t} value={v} />)}
         </TokenGroup>

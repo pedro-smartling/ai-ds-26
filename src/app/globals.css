@@ -329,6 +329,7 @@ body {
   --color-surface-disabled: var(--color-neutral-100);
   --color-surface-solid: var(--color-neutral-1000);
   --color-surface-inverse: var(--color-neutral-900);
+  --color-surface-form-selected: var(--color-neutral-900);
 
   /* Surface Error Colors */
   --color-surface-error-main: var(--color-red-50);
@@ -392,6 +393,7 @@ body {
   --color-foreground-strong-hover: var(--color-neutral-500);
   --color-foreground-disabled: var(--color-neutral-400);
   --color-foreground-white: var(--color-base-white);
+  --color-foreground-form-selected: var(--color-base-white);
 
   /* Foreground Brand Colors */
   --color-foreground-brand-main: var(--color-violet-700);
@@ -474,6 +476,7 @@ body {
   --color-surface-disabled: var(--color-neutral-800);
   --color-surface-solid: var(--color-neutral-800);
   --color-surface-inverse: var(--color-base-white);
+  --color-surface-form-selected: var(--color-base-white);
 
   /* Surface Error Colors */
   --color-surface-error-main: var(--color-red-1000);
@@ -536,6 +539,7 @@ body {
   --color-foreground-strong-hover: var(--color-neutral-400);
   --color-foreground-disabled: var(--color-neutral-400);
   --color-foreground-white: var(--color-base-white);
+  --color-foreground-form-selected: var(--color-neutral-900);
 
   /* Foreground Brand Colors */
   --color-foreground-brand-main: var(--color-violet-500);

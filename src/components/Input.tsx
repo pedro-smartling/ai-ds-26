@@ -147,7 +147,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(({
       )}
 
       {isError && errorText && (
-        <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--dimension-tier-3)' }}>
           <AlertCircle width={16} height={16} style={{ color: 'var(--color-foreground-error-main)', flexShrink: 0 }} />
           <span style={{
             fontSize: 'var(--font-size-s)',
@@ -190,10 +190,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(({
       const iconWrapperStyle: React.CSSProperties = {
         display: 'flex',
         alignItems: 'center',
-        gap: '8px',
+        gap: 'var(--space-page-inside-xs)',
         height,
-        paddingLeft: '12px',
-        paddingRight: '12px',
+        paddingLeft: 'var(--space-page-inside-s)',
+        paddingRight: 'var(--space-page-inside-s)',
         borderRadius: 'var(--radius-m)',
         border: isReadOnly ? 'none' : '2px solid transparent',
         borderColor: isFocused && !isDisabled && !isReadOnly ? 'var(--color-border-solid)' : 'transparent',
@@ -204,8 +204,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(({
       };
 
       const iconSpanStyle: React.CSSProperties = {
-        width: 20,
-        height: 20,
+        width: 'var(--size-icon-m)',
+        height: 'var(--size-icon-m)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',

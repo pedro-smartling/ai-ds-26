@@ -28,10 +28,10 @@ const iconColors: Record<FeaturedIconColor, string> = {
 };
 
 const sizes: Record<FeaturedIconSize, { container: string; icon: string }> = {
-  sm: { container: '32px', icon: '16px' },
-  md: { container: '40px', icon: '20px' },
-  lg: { container: '48px', icon: '24px' },
-  xl: { container: '56px', icon: '28px' },
+  sm: { container: 'var(--size-actions-m)', icon: 'var(--size-icon-s)' },
+  md: { container: 'var(--size-actions-xl)', icon: 'var(--size-icon-m)' },
+  lg: { container: 'var(--size-actions-3xl)', icon: 'var(--size-icon-l)' },
+  xl: { container: 'var(--dimension-tier-16)', icon: 'var(--dimension-tier-10)' },
 };
 
 export default function FeaturedIcon({ icon, color = 'brand', size = 'md' }: FeaturedIconProps) {

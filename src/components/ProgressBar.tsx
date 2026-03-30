@@ -28,9 +28,9 @@ const fillColors: Record<ProgressBarColor, string> = {
 };
 
 const heights: Record<ProgressBarSize, string> = {
-  xs: '4px',
-  sm: '8px',
-  md: '12px',
+  xs: 'var(--dimension-tier-3)',
+  sm: 'var(--dimension-tier-5)',
+  md: 'var(--dimension-tier-6)',
 };
 
 export default function ProgressBar({ value, color = 'brand', size = 'sm', label, showValue }: ProgressBarProps) {

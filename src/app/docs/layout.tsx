@@ -19,13 +19,28 @@ const navigation: NavItem[] = [
   {
     label: 'Atoms',
     children: [
+      { label: 'Base Radio', href: '/docs/atoms/base-radio' },
+      { label: 'Base Toggle', href: '/docs/atoms/base-toggle' },
+      { label: 'Base Tooltip', href: '/docs/atoms/base-tooltip' },
       { label: 'Icons', href: '/docs/atoms/icons' },
+      { label: 'Logos', href: '/docs/atoms/logos' },
     ],
   },
   {
     label: 'Components',
     children: [
+      { label: 'Accordion', href: '/docs/components/accordion' },
+      { label: 'Button Group', href: '/docs/components/button-group' },
+      { label: 'Buttons', href: '/docs/components/buttons' },
+      { label: 'Card', href: '/docs/components/card' },
+      { label: 'Dropdown', href: '/docs/components/dropdown' },
+      { label: 'Featured Icon', href: '/docs/components/featured-icon' },
       { label: 'Input', href: '/docs/components/input' },
+      { label: 'Modal', href: '/docs/components/modal' },
+      { label: 'Progress Bar', href: '/docs/components/progress-bar' },
+      { label: 'Radio', href: '/docs/components/radio' },
+      { label: 'Tabs', href: '/docs/components/tabs' },
+      { label: 'Tooltip', href: '/docs/components/tooltip' },
     ],
   },
 ];

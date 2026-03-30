@@ -45,7 +45,7 @@ const Button: React.FC<ButtonProps> = ({
       aria-disabled={disabled}
       {...props}
     >
-      {icon && <span style={{ display: 'inline-flex', alignItems: 'center', marginRight: children ? 8 : 0 }}>{icon}</span>}
+      {icon && <span style={{ display: 'inline-flex', alignItems: 'center', marginRight: children ? 'var(--space-page-inside-xs)' : 0 }}>{icon}</span>}
       {!iconOnly && children}
     </button>
   );
