@@ -56,7 +56,7 @@ export default function FeaturedIconPage() {
               <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-text-moderate)' }}>error</span>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--dimension-tier-4)' }}>
-              <FeaturedIcon icon={<Settings />} color="neutral" />
+              <FeaturedIcon icon={<Settings />} color="default" />
               <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-text-moderate)' }}>neutral</span>
             </div>
           </div>
