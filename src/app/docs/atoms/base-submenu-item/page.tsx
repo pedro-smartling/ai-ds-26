@@ -1,11 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
-import BaseSubmenuItem, { SubmenuItemVariant, SubmenuItemState } from '@/components/BaseSubmenuItem';
+import BaseSubmenuItem, { SubmenuItemState } from '@/components/BaseSubmenuItem';
 import PageHeader from '@/components/docs/PageHeader';
 import PreviewBox from '@/components/docs/PreviewBox';
 import PropsTable from '@/components/docs/PropsTable';
-import { User, Mail, Settings, Bell } from 'lucide-react';
+import { User } from 'lucide-react';
 
 const sectionTitle = (text: string) => (
   <h2 style={{
