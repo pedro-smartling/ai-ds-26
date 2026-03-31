@@ -23,6 +23,8 @@ interface TagProps {
   dismissible?: boolean;
   /** Called when X is clicked */
   onDismiss?: () => void;
+  /** Focused state — dark bg, white text, amber focus ring */
+  focused?: boolean;
 }
 
 const SIZE_STYLES: Record<TagSize, { height: string; fontSize: string; lineHeight: string; iconSize: number; gap: number }> = {
@@ -40,9 +42,19 @@ export default function Tag({
   count,
   dismissible,
   onDismiss,
+  focused,
 }: TagProps) {
   const s = SIZE_STYLES[size];
   const hasLeading = !!(icon || dot);
+
+  const basePadLeft = hasLeading
+    ? (size === 'sm' ? 'var(--dimension-tier-4)' : 'var(--space-page-inside-xs)')
+    : (size === 'lg' ? 'var(--space-page-inside-s)' : 'var(--space-page-inside-xs)');
+  const basePadRight = dismissible
+    ? 'var(--dimension-tier-4)'
+    : count !== undefined
+    ? 'var(--dimension-tier-4)'
+    : (size === 'lg' ? 'var(--space-page-inside-s)' : 'var(--space-page-inside-xs)');
 
   return (
     <div style={{
@@ -52,20 +64,19 @@ export default function Tag({
       height: s.height,
       maxHeight: s.height,
       gap: s.gap,
-      paddingTop: 'var(--space-page-inside-xxs)',
-      paddingBottom: 'var(--space-page-inside-xxs)',
-      paddingLeft: hasLeading
-        ? (size === 'sm' ? 'var(--dimension-tier-4)' : 'var(--space-page-inside-xs)')
-        : (size === 'lg' ? 'var(--space-page-inside-s)' : 'var(--space-page-inside-xs)'),
-      paddingRight: dismissible
-        ? 'var(--dimension-tier-4)'
-        : count !== undefined
-        ? 'var(--dimension-tier-4)'
-        : (size === 'lg' ? 'var(--space-page-inside-s)' : 'var(--space-page-inside-xs)'),
-      backgroundColor: 'var(--color-surface-main)',
-      border: 'var(--border-width-tier-2) solid var(--color-border-main)',
+      paddingTop: focused ? 'calc(var(--space-page-inside-xxs) - 1px)' : 'var(--space-page-inside-xxs)',
+      paddingBottom: focused ? 'calc(var(--space-page-inside-xxs) - 1px)' : 'var(--space-page-inside-xxs)',
+      paddingLeft: focused ? `calc(${basePadLeft} - 1px)` : basePadLeft,
+      paddingRight: focused ? `calc(${basePadRight} - 1px)` : basePadRight,
+      backgroundColor: focused ? 'var(--color-surface-form-selected)' : 'var(--color-surface-main)',
+      border: focused
+        ? '2px solid var(--color-border-solid)'
+        : 'var(--border-width-tier-2) solid var(--color-border-main)',
       borderRadius: 'var(--radius-s)',
       boxSizing: 'border-box',
+      boxShadow: focused
+        ? '0px 0px 0px 2px var(--color-surface-main), 0px 0px 0px 6px var(--color-amber-300)'
+        : undefined,
     }}>
       {/* Content row */}
       <div style={{
@@ -94,7 +105,7 @@ export default function Tag({
             width: s.iconSize,
             height: s.iconSize,
             flexShrink: 0,
-            color: 'var(--color-foreground-soft)',
+            color: focused ? 'var(--color-foreground-form-selected)' : 'var(--color-foreground-soft)',
           }}>
             {icon}
           </span>
@@ -106,7 +117,7 @@ export default function Tag({
           fontWeight: 'var(--font-weight-body-strong)',
           fontSize: s.fontSize,
           lineHeight: s.lineHeight,
-          color: 'var(--color-text-soft)',
+          color: focused ? 'var(--color-foreground-form-selected)' : 'var(--color-text-soft)',
           whiteSpace: 'nowrap',
           textAlign: 'center',
         }}>
@@ -121,7 +132,7 @@ export default function Tag({
 
       {/* Dismiss X */}
       {dismissible && (
-        <TagCloseX size={size} onClick={onDismiss} aria-label={`Remove ${label}`} />
+        <TagCloseX size={size} onClick={onDismiss} aria-label={`Remove ${label}`} parentFocused={focused} />
       )}
     </div>
   );

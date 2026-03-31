@@ -116,6 +116,25 @@ export default function TagPage() {
         </PreviewBox>
       </section>
 
+      {/* Focused */}
+      <section style={{ marginBottom: 'var(--space-page-inset-xl)' }}>
+        {sectionTitle('Focused')}
+        {sectionDesc('The focused state is used for keyboard navigation, e.g. when backspacing through tags in a multi-select. Dark background, white text and icon, amber focus ring.')}
+        <PreviewBox>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--dimension-tier-7)' }}>
+            {SIZES.map((s) => (
+              <div key={s.value} style={{ display: 'flex', alignItems: 'center', gap: 'var(--dimension-tier-6)' }}>
+                <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-text-moderate)', minWidth: 24 }}>{s.label}</span>
+                <Tag label="Label" size={s.value} focused />
+                <Tag label="Label" size={s.value} icon={<Mail />} focused />
+                <Tag label="Label" size={s.value} dismissible focused />
+                <Tag label="Label" size={s.value} count={5} focused />
+              </div>
+            ))}
+          </div>
+        </PreviewBox>
+      </section>
+
       {/* In context */}
       <section style={{ marginBottom: 'var(--space-page-inset-xl)' }}>
         {sectionTitle('In context')}
@@ -144,6 +163,7 @@ export default function TagPage() {
           { name: 'count', type: 'number', description: 'Count badge shown after the label.' },
           { name: 'dismissible', type: 'boolean', default: 'false', description: 'Show an X close button.' },
           { name: 'onDismiss', type: '() => void', description: 'Called when the X button is clicked.' },
+          { name: 'focused', type: 'boolean', default: 'false', description: 'Focused state: dark background, white text/icons, amber focus ring. Used for keyboard navigation.' },
         ]} />
       </section>
     </div>

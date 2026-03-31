@@ -11,6 +11,8 @@ interface TagCloseXProps {
   'aria-label'?: string;
   /** Force visual state for demos */
   forceState?: 'default' | 'hover';
+  /** When parent tag is focused (dark bg) — icon turns white */
+  parentFocused?: boolean;
 }
 
 const SIZE_STYLES: Record<TagCloseXSize, { box: string; icon: number }> = {
@@ -24,6 +26,7 @@ export default function TagCloseX({
   onClick,
   'aria-label': ariaLabel = 'Remove',
   forceState,
+  parentFocused,
 }: TagCloseXProps) {
   const [hovered, setHovered] = useState(false);
   const isHovered = forceState ? forceState === 'hover' : hovered;
@@ -49,7 +52,7 @@ export default function TagCloseX({
         flexShrink: 0,
         borderRadius: isHovered ? 'var(--radius-xs)' : '3px',
         backgroundColor: isHovered ? 'var(--color-surface-moderate)' : 'transparent',
-        color: 'var(--color-foreground-soft)',
+        color: parentFocused ? 'var(--color-foreground-form-selected)' : 'var(--color-foreground-soft)',
         transition: 'background-color 0.1s',
       }}
     >

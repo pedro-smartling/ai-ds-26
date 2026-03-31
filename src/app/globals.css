@@ -447,6 +447,10 @@ body {
   --color-text-success-main: var(--color-green-600);
   --color-text-success-soft: var(--color-green-700);
 
+  /* Link */
+  --color-text-link: var(--color-blue-600);
+  --color-surface-link-pressed: var(--color-amber-300);
+
   /* Shadows */
   --shadow-focus-ring-brand: 0px 0px 0px 4px var(--color-violet-200);
   --shadow-focus-ring-default: 0px 0px 0px 4px rgba(152, 162, 179, 0.14);
@@ -588,6 +592,10 @@ body {
   /* Text Warning Colors */
   --color-text-warning-main: var(--color-amber-400);
   --color-text-warning-soft: var(--color-amber-600);
+
+  /* Link */
+  --color-text-link: var(--color-blue-400);
+  --color-surface-link-pressed: var(--color-amber-300);
 
   /* Shadows */
   --shadow-focus-ring-brand: 0px 0px 0px 4px var(--color-violet-200);
