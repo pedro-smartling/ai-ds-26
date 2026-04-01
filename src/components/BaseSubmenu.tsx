@@ -261,7 +261,6 @@ function ItemRow({
               lineHeight: 'var(--line-height-body-m)',
               color: textColor,
               whiteSpace: 'nowrap',
-              overflow: 'hidden',
               textOverflow: 'ellipsis',
               flex: 1,
               ...textTrim,

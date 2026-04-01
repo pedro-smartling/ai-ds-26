@@ -177,7 +177,6 @@ export default function SingleSelect({
             ? (disabled ? 'var(--color-text-disabled)' : 'var(--color-text-main)')
             : 'var(--color-text-placeholder)',
           whiteSpace: 'nowrap',
-          overflow: 'hidden',
           textOverflow: 'ellipsis',
           ...textTrim,
         }}>

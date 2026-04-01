@@ -58,7 +58,6 @@ export default function PreviewBox({ title, description, children, fill, bg = 'd
         justifyContent: fill ? undefined : 'center',
         gap: fill ? undefined : 'var(--dimension-tier-7)',
         minHeight: '80px',
-        overflow: 'hidden',
         ...style,
       }}>
         {children}

@@ -251,7 +251,6 @@ export default function BaseSubmenuItem({
               lineHeight: 'var(--line-height-body-m)',
               color: textColor,
               whiteSpace: 'nowrap',
-              overflow: 'hidden',
               textOverflow: 'ellipsis',
               minHeight: showCheckbox ? 20 : undefined,
               display: showCheckbox ? 'flex' : undefined,
